@@ -22,7 +22,7 @@ class BrushUnderline extends StatelessWidget {
         context.isDarkMode
             ? OnboardingAssets.brushUnderlineWhite
             : OnboardingAssets.brushUnderline,
-        fit: BoxFit.cover,
+        fit: BoxFit.contain,
         // Purely decorative — the highlighted word right above it already
         // carries the meaning, so a screen reader has nothing useful to say
         // about this image.

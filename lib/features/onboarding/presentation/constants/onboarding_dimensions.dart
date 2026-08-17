@@ -7,7 +7,7 @@ abstract final class OnboardingDimensions {
   /// where the design wraps it.
   static const double agreementTextWidth = 232;
 
-  static const double bottomHeight = 130;
+  static const double bottomHeight = 106;
   /// Gap between the agreement block and the bottom of the screen.
   static const double agreementBottomSpace = 8;
 }

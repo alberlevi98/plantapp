@@ -37,7 +37,9 @@ class PlanOptionTile extends StatelessWidget {
         child: AnimatedContainer(
           duration: AppDurations.fast,
           curve: AppMotion.resize,
-          height: context.h(PaywallDimensions.planTileHeight),
+          constraints: BoxConstraints(
+            minHeight: context.h(PaywallDimensions.planTileHeight + AppBorderWidth.emphasis),
+          ),
           decoration: BoxDecoration(
             color: isSelected ? null : AppColors.light.paywallCardUnselected,
             gradient: isSelected ? _selectedWash : null,

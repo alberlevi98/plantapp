@@ -24,6 +24,9 @@ extension ResponsiveContextX on BuildContext {
   /// here, so there's nothing to subtract.
   double hWithSafeTop(double value) =>
       MediaQuery.of(this).viewPadding.top + h(value);
+
+  double hWithSafeBottom(double value) =>
+      MediaQuery.of(this).viewPadding.bottom + h(value);
 }
 
 extension ThemeContextX on BuildContext {

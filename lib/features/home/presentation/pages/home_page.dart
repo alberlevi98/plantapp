@@ -272,7 +272,7 @@ class _Header extends StatelessWidget {
                 ? HomeAssets.headerBackgroundDark
                 : HomeAssets.headerBackground,
           ),
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
         ),
       ),
       child: Stack(
@@ -290,7 +290,7 @@ class _Header extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: context.hWithSafeTop(AppDimensions.xl)),
                 Text('Hi, plant lover!', style: context.textStyles.bodyLarge),
-                SizedBox(height: context.h(AppDimensions.sm)),
+                SizedBox(height: context.h(AppDimensions.xsPlus)),
                 Text(_greeting(), style: context.textStyles.headlineSmall),
                 SizedBox(height: context.h(AppDimensions.lg)),
                 HomeSearchBar(onChanged: onSearchChanged),

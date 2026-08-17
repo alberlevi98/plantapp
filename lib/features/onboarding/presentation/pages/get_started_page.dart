@@ -56,6 +56,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
 
   @override
   Widget build(BuildContext context) {
+
     final double gutter = context.w(AppDimensions.pageHorizontal);
 
     return Container(
@@ -66,7 +67,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                 ? OnboardingAssets.getStartedBackgroundDark
                 : OnboardingAssets.getStartedBackground,
           ),
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
         ),
       ),
       child: Scaffold(
@@ -81,7 +82,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                   Positioned.fill(
                     child: Image.asset(
                       OnboardingAssets.getStartedForeground,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                       // Decorative — "Welcome to PlantApp" + the subtitle
                       // right on top of it already say what this screen is.
                       excludeFromSemantics: true,
@@ -101,7 +102,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
             // Separate sibling of the Column, so the CTA can never overlap
             // the artwork above no matter how tall the text becomes.
             SizedBox(
-              height: context.h(OnboardingDimensions.bottomHeight),
+              height: context.hWithSafeBottom(OnboardingDimensions.bottomHeight),
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: gutter),
                 child: Column(

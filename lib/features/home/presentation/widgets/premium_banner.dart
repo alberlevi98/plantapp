@@ -50,7 +50,7 @@ class PremiumBanner extends StatelessWidget {
               children: <Widget>[
                 Image.asset(
                   HomeAssets.mailIcon,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                   excludeFromSemantics: true,
                 ),
                 SizedBox(width: context.w(AppDimensions.md)),

@@ -36,7 +36,7 @@ abstract final class AppDimensions {
   // --- Shared component sizes --------------------------------------------
   static const double buttonHeight = 56;
   static const double searchBarHeight = 44;
-  static const double tabBarHeight = 80;
+  static const double tabBarHeight = 56;
   static const double categoryCardSize = 152;
   static const double questionCardWidth = 240;
   static const double questionCardHeight = 164;

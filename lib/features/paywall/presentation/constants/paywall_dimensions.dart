@@ -6,7 +6,7 @@ abstract final class PaywallDimensions {
   static const double featureCardIconSize = 36;
 
   // --- Plan tiles ---------------------------------------------------------
-  static const double planTileHeight = 66;
+  static const double planTileHeight = 63;
   static const double planTilePadding = 14;
 
   /// The "Save 50%" corner badge.

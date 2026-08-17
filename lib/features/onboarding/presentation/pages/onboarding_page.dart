@@ -105,7 +105,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               context.isDarkMode
                   ? OnboardingAssets.getStartedBackgroundDark
                   : OnboardingAssets.onboardingBackground,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
               // Decorative background — the headline carries the meaning,
               // this shouldn't get its own screen-reader announcement.
               excludeFromSemantics: true,
@@ -162,7 +162,7 @@ class _OnboardingContent extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: context.h(OnboardingDimensions.bottomHeight),
+          height: context.hWithSafeBottom(OnboardingDimensions.bottomHeight),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: gutter),
             child: Column(

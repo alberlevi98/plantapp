@@ -34,7 +34,7 @@ class OnboardingSlideView extends StatelessWidget {
                 context.isDarkMode
                     ? (slide.foregroundImageDark ?? slide.foregroundImage)
                     : slide.foregroundImage,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
               alignment: Alignment.bottomCenter,
               width: double.infinity,
               height: double.infinity,

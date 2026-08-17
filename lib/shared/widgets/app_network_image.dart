@@ -13,7 +13,7 @@ import '../../core/extensions/context_extensions.dart';
 class AppNetworkImage extends StatelessWidget {
   const AppNetworkImage({
     required this.url,
-    this.fit = BoxFit.cover,
+    this.fit = BoxFit.contain,
     this.width,
     this.height,
     this.borderRadius,

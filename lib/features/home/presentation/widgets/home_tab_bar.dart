@@ -36,7 +36,7 @@ class HomeTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double barHeight = context.h(AppDimensions.tabBarHeight);
+    final double barHeight = context.hWithSafeBottom(AppDimensions.tabBarHeight);
     final double scanSize = context.r(HomeDimensions.scanButtonSize);
 
     // The scan button straddles the bar's top edge, so the whole widget has
@@ -109,8 +109,10 @@ class HomeTabBar extends StatelessWidget {
               //                  : context.appColors.tabInactiveIcon`
               // here; on full-colour PNGs it would flatten them instead.
               Image.asset(
+                fit: BoxFit.contain,
                 item.asset,
                 width: context.r(HomeDimensions.tabIconSize),
+                height: context.r(HomeDimensions.tabIconSize),
                 excludeFromSemantics: true,
               ),
               SizedBox(height: context.h(HomeDimensions.tabIconLabelSpacing)),
