@@ -58,14 +58,14 @@ class PaywallPage extends StatelessWidget implements AutoRouteWrapper {
           Positioned(
             child: Image.asset(
               PaywallAssets.paywallHero,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
           SafeArea(
             child: Align(
               alignment: AlignmentGeometry.topRight,
               child: Padding(
-                  padding: EdgeInsets.only(top:context.h(2),right: context.w(20)),
+                  padding: EdgeInsets.only(right: context.w(AppDimensions.xl)),
                   child: _CloseButton(onPressed: () => _close(context))
               ),
             ),
@@ -104,10 +104,11 @@ class _PaywallContent extends StatelessWidget {
                         height: context.h(AppDimensions.xxxl),
                         child: Image.asset(
                           PaywallAssets.plantTxtIcon,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.contain,
                         ),
                       ),
-                      SizedBox(width:context.w(AppDimensions.sm)),
+                      // FIX: Figma Title grubu gap: 6px → xsPlus (was: sm = 8px)
+                      SizedBox(width: context.w(AppDimensions.xsPlus)),
                       Text(
                         'Premium',
                         style: context.scale(AppTextStyles.paywallTitle),
@@ -125,6 +126,7 @@ class _PaywallContent extends StatelessWidget {
                 ],
               ),
             ),
+            // Texts ↔ Features: Figma Content gap: 24px → xxl (24px) — already correct.
             SizedBox(height: context.h(AppDimensions.xxl)),
             SizedBox(
               height: context.h(PaywallDimensions.featureListViewHeight),
@@ -177,6 +179,7 @@ class _PaywallContent extends StatelessWidget {
                 ],
               ),
             ),
+            // Features ↔ Plan tiles: Figma Content gap: 24px → xxl (24px) — already correct.
             SizedBox(height: context.h(AppDimensions.xxl)),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: gutter),
@@ -188,10 +191,12 @@ class _PaywallContent extends StatelessWidget {
                       isSelected: state.selectedIndex == i,
                       onTap: () => context.read<PaywallBloc>().add(PaywallEvent.planSelected(i)),
                     ),
+                    // Tile ↔ Tile: Figma Premium-options gap: 16px → lg (16px) — already correct.
                     if (i != state.plans.length - 1)
                       SizedBox(height: context.h(AppDimensions.lg)),
                   ],
-                  SizedBox(height: context.h(AppDimensions.xl)),
+                  // FIX: last tile ↔ button: Figma Content gap: 24px → xxl (was: lg = 16px)
+                  SizedBox(height: context.h(AppDimensions.xxl)),
                   PrimaryButton(
                     label: 'Try free for 3 days',
                     isLoading: state.isPurchasing,
@@ -199,7 +204,8 @@ class _PaywallContent extends StatelessWidget {
                     // paywall is what ends the onboarding flow.
                     onPressed: onClose,
                   ),
-                  SizedBox(height: context.h(AppDimensions.sm)),
+                  // FIX: button ↔ disclaimer: Figma Content gap: 10px → smPlus (was: sm = 8px)
+                  SizedBox(height: context.h(AppDimensions.smPlus)),
                   Text(
                     _disclaimer(state.selectedPlan),
                     textAlign: TextAlign.center,
@@ -207,9 +213,10 @@ class _PaywallContent extends StatelessWidget {
                       color: AppColors.light.paywallTextTertiary,
                     ),
                   ),
-                  SizedBox(height: context.h(6)),
+                  // FIX: disclaimer ↔ terms row: Figma Content gap: 8px → sm (was: raw literal 6)
+                  SizedBox(height: context.h(AppDimensions.sm)),
                   const _LegalLinksRow(),
-                  SizedBox(height: context.h(AppDimensions.xl)),
+                  SizedBox(height: context.hWithSafeBottom(0)),
                 ],
               ),
             ),
