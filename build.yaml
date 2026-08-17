@@ -1,0 +1,14 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        options:
+          # Generated models stay immutable with value equality and copyWith.
+          copy_with: true
+          equal: true
+      json_serializable:
+        options:
+          explicit_to_json: true
+          field_rename: snake
+          create_factory: true
+          create_to_json: true

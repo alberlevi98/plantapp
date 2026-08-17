@@ -14,7 +14,12 @@
 #   Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 # ---------------------------------------------------------------------------
 
-$ErrorActionPreference = "Stop"
+# PowerShell 7.3+ varsayılan olarak native komutların (git dahil) stderr'e
+# yazdığı HER ŞEYİ hataya çeviriyor — "remote yok" gibi normal bilgi
+# mesajları bile. Bunu kapatıyoruz; kendi hata kontrolümüzü $LASTEXITCODE
+# ile elle yapıyoruz.
+$PSNativeCommandUseErrorActionPreference = $false
+$ErrorActionPreference = "Continue"
 
 function Git-Commit {
     param(
@@ -36,10 +41,12 @@ function Git-Commit {
 }
 
 $remoteUrl = "https://github.com/alberlevi98/plantapp.git"
-$hasOrigin = git remote get-url origin 2>$null
-if (-not $hasOrigin) {
+$remotes = git remote
+if ($remotes -notcontains "origin") {
     git remote add origin $remoteUrl
     Write-Host "origin remote eklendi: $remoteUrl"
+} else {
+    Write-Host "origin remote zaten var, atlaniyor."
 }
 
 # 1) Proje iskeleti
