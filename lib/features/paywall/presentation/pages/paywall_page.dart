@@ -216,7 +216,7 @@ class _PaywallContent extends StatelessWidget {
                   // FIX: disclaimer ↔ terms row: Figma Content gap: 8px → sm (was: raw literal 6)
                   SizedBox(height: context.h(AppDimensions.sm)),
                   const _LegalLinksRow(),
-                  SizedBox(height: context.hWithSafeBottom(0)),
+                  SizedBox(height: context.hWithSafeBottom(AppDimensions.none)),
                 ],
               ),
             ),
