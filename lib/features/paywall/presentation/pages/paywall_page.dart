@@ -66,7 +66,7 @@ class PaywallPage extends StatelessWidget implements AutoRouteWrapper {
               alignment: AlignmentGeometry.topRight,
               child: Padding(
                   padding: EdgeInsets.only(right: context.w(AppDimensions.xl)),
-                  child: _CloseButton(onPressed: () => _close(context))
+                  child: _CloseButton(onPressed: () => _close(context)),
               ),
             ),
           ),
