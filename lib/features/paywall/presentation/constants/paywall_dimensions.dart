@@ -25,11 +25,6 @@ abstract final class PaywallDimensions {
   /// grown separately to Material's 48dp minimum.
   static const double closeButtonSize = 24;
 
-  /// Inset of that button from the top-right corner of the screen.
-  static const double closeButtonInset = 16;
-
-  /// Gap between the trial disclaimer and the legal links below it.
-  static const double disclaimerToLinksSpacing = 6;
 }
 
 /// Non-layout paywall constants.

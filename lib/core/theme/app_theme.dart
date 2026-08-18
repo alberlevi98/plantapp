@@ -72,6 +72,18 @@ abstract final class AppTheme {
         thickness: AppBorderWidth.regular,
         space: AppBorderWidth.regular,
       ),
+      snackBarTheme: SnackBarThemeData(
+        backgroundColor: isDark
+            ? AppColors.dark.categoryCardBackground
+            : AppColors.light.categoryCardBackground,
+        contentTextStyle: AppTextStyles.bodyMedium.copyWith(color: onSurface),
+        actionTextColor: scheme.primary,
+        behavior: SnackBarBehavior.floating,
+        elevation: AppElevation.none,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppRadius.md),
+        ),
+      ),
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: <TargetPlatform, PageTransitionsBuilder>{
           TargetPlatform.android: ZoomPageTransitionsBuilder(),

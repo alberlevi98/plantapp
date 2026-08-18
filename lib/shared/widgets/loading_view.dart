@@ -9,10 +9,17 @@ class LoadingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: CircularProgressIndicator(
-        strokeWidth: AppStrokeWidth.progressIndicator,
-        valueColor:
-            AlwaysStoppedAnimation<Color>(context.appColors.primary),
+      // Same reasoning as ErrorView: a screen-reader user needs to hear that
+      // something is in flight, otherwise the screen just goes quiet between
+      // navigation and the first frame of real content.
+      child: Semantics(
+        label: 'Loading',
+        liveRegion: true,
+        child: CircularProgressIndicator(
+          strokeWidth: AppStrokeWidth.progressIndicator,
+          valueColor:
+          AlwaysStoppedAnimation<Color>(context.appColors.primary),
+        ),
       ),
     );
   }

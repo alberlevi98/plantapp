@@ -61,7 +61,7 @@ class PaywallFeatureCard extends StatelessWidget {
             top: context.h(AppDimensions.lg),
             left: context.w(AppDimensions.lg),
             bottom: context.h(AppDimensions.lg),
-            right: context.w(PaywallDimensions.featureCardTrailingPadding), // ya da PaywallDimensions'a yeni bir sabit ekle
+            right: context.w(PaywallDimensions.featureCardTrailingPadding),
           ),
         decoration: BoxDecoration(
           color: AppColors.light.paywallCard,

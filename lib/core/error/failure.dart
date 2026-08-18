@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:equatable/equatable.dart';
 
 import 'exceptions.dart';
@@ -51,6 +53,12 @@ sealed class Failure extends Equatable {
         UnknownFailure(:final String message) => message,
       };
 
+  int? get displayCode => switch (this) {
+    NotFoundFailure() => HttpStatus.notFound,
+    ServerFailure(:final int? statusCode) => statusCode,
+    _ => null,
+  };
+
   bool get isRetryable => switch (this) {
         NetworkFailure() || TimeoutFailure() || ServerFailure() || UnknownFailure() => true,
         UnauthorizedFailure() || NotFoundFailure() || ParsingFailure() || CacheFailure() =>
@@ -83,7 +91,12 @@ final class UnauthorizedFailure extends Failure {
 }
 
 final class NotFoundFailure extends Failure {
-  const NotFoundFailure([super.message = 'Nothing found here.']);
+  const NotFoundFailure([super.message = 'Nothing found here.', this.statusCode]);
+
+  final int? statusCode;
+
+  @override
+  List<Object?> get props => <Object?>[message, statusCode];
 }
 
 final class ParsingFailure extends Failure {
@@ -97,3 +110,4 @@ final class CacheFailure extends Failure {
 final class UnknownFailure extends Failure {
   const UnknownFailure([super.message = 'Something went wrong.']);
 }
+

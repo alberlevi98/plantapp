@@ -3,13 +3,7 @@
 abstract final class HomeDimensions {
   // --- Header -------------------------------------------------------------
   /// Height of the decorative header artwork behind the greeting.
-  static const double headerImageHeight = 175;
-
-  /// Height of the greeting + search block drawn on top of that artwork.
-  static const double headerContentHeight = 175;
-
-  /// Distance from the top of the screen to the greeting.
-  static const double headerTopOffset = 48;
+  static const double headerContentHeight = 151;
 
   /// Gap between the search glyph and the input field.
   static const double searchIconGap = 10;

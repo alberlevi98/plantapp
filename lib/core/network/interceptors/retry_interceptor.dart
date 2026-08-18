@@ -21,7 +21,6 @@ class RetryInterceptor extends Interceptor {
   static const int _firstAttempt = 0;
 
   static const Set<DioExceptionType> _retryableTypes = <DioExceptionType>{
-    DioExceptionType.connectionError,
     DioExceptionType.connectionTimeout,
     DioExceptionType.receiveTimeout,
     DioExceptionType.sendTimeout,

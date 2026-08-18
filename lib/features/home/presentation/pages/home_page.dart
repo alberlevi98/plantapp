@@ -15,6 +15,7 @@ import '../bloc/home_bloc.dart';
 import '../constants/home_assets.dart';
 import '../constants/home_dimensions.dart';
 import '../widgets/category_card.dart';
+import '../widgets/connection_error_snack_bar_content.dart';
 import '../widgets/home_search_bar.dart';
 import '../widgets/home_tab_bar.dart';
 import '../widgets/premium_banner.dart';
@@ -35,7 +36,24 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
     return Scaffold(
       extendBody: true,
       backgroundColor: context.appColors.scaffoldBackground,
-      body: BlocBuilder<HomeBloc, HomeState>(
+      body: BlocConsumer<HomeBloc, HomeState>(
+        listenWhen: (HomeState previous, HomeState current) =>
+        // Only when a refresh (not a first load) has just failed while
+        // content is still on screen — the full-screen ErrorView covers
+        // the empty case on its own.
+        current.status == HomeStatus.failure &&
+            current.hasContent &&
+            previous.status != HomeStatus.failure,
+        listener: (BuildContext context, HomeState state) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            ConnectionErrorSnackBar(
+              context: context,
+              message: state.failure!.displayMessage,
+              onRetry: () =>
+                  context.read<HomeBloc>().add(const HomeEvent.refreshed()),
+            ),
+          );
+        },
         builder: (BuildContext context, HomeState state) {
           // isBusy covers both HomeStatus.loading (first load) and
           // .refreshing (pull-to-refresh / the error screen's "Try again")
@@ -255,7 +273,7 @@ class _Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: context.hWithSafeTop(151),
+      height: context.hWithSafeTop(HomeDimensions.headerContentHeight),
       width: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
