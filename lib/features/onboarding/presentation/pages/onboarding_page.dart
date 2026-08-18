@@ -85,7 +85,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
     // what makes that change actually reach a screen reader user.
     if (mounted) {
       final OnboardingSlide nextSlide = OnboardingBloc.slides[state.pageIndex + 1];
-      unawaited(SemanticsService.announce(nextSlide.title, TextDirection.ltr));
+      unawaited(
+        SemanticsService.sendAnnouncement(
+          View.of(context),
+          nextSlide.title,
+          TextDirection.ltr,
+        ),
+      );
     }
   }
 

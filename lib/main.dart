@@ -10,7 +10,7 @@ import 'app/di/injector.dart';
 import 'core/utils/bloc_observer.dart';
 
 Future<void> main() async {
-  runZonedGuarded<Future<void>>(
+  await runZonedGuarded<Future<void>>(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
 

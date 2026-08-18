@@ -32,23 +32,17 @@ class AppRouter extends RootStackRouter {
           initial: true,
           guards: <AutoRouteGuard>[onboardingGuard],
         ),
-        CustomRoute(
+        CustomRoute<void>(
           page: OnboardingRoute.page,
           path: onboardingPath,
-          // Get Started and Onboarding use different background images, so
-          // a lateral push slides two unrelated scenes past each other —
-          // a crossfade reads as one calm scene settling into the next.
           transitionsBuilder: TransitionsBuilders.fadeIn,
-          durationInMilliseconds: AppDurations.routeTransitionMs,
+          duration: const Duration(milliseconds: AppDurations.routeTransitionMs),
         ),
-        CustomRoute(
+        CustomRoute<void>(
           page: PaywallRoute.page,
           path: paywallPath,
-          // Paywall has its own close button — it reads as a sheet sitting
-          // on top of onboarding, not another step sideways through it. A
-          // short rise + fade feels less abrupt than a full-height slide.
           transitionsBuilder: _paywallTransitionsBuilder,
-          durationInMilliseconds: AppDurations.routeTransitionMs,
+          duration: const Duration(milliseconds: AppDurations.routeTransitionMs),
         ),
         AutoRoute(page: HomeRoute.page, path: homePath),
       ];

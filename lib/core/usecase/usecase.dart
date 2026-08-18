@@ -5,10 +5,10 @@ import '../network/result.dart';
 
 /// A single piece of application business logic.
 /// Call it like a function: `await getCategories(NoParams())`.
-abstract class UseCase<Type, Params> {
+abstract class UseCase<ReturnType, Params> {
   const UseCase();
 
-  Future<Result<Type>> call(Params params);
+  Future<Result<ReturnType>> call(Params params);
 }
 
 class NoParams extends Equatable {
