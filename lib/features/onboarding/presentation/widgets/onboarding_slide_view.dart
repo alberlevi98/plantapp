@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../../core/constants/app_dimensions.dart';
 import '../../../../core/constants/app_typography.dart';
 import '../../../../core/extensions/context_extensions.dart';
-import '../../../../core/theme/app_text_styles.dart';
 import '../../domain/entities/onboarding_slide.dart';
 import '../constants/onboarding_dimensions.dart';
 import 'brush_underline.dart';
@@ -25,7 +24,7 @@ class OnboardingSlideView extends StatelessWidget {
             padding: EdgeInsets.only(
               left:context.w(AppDimensions.pageHorizontal),
               right:context.w(AppDimensions.pageHorizontal),
-              top: context.hWithSafeTop(0)
+              top: context.hWithSafeTop(0),
             ),
             child: _Headline(slide: slide),
           ),

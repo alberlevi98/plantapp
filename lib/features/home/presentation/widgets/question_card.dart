@@ -78,7 +78,7 @@ class QuestionCard extends StatelessWidget {
                       maxLines: AppTextLimits.twoLines,
                       overflow: TextOverflow.ellipsis,
                       style: context.textStyles.bodyMedium
-                          ?.copyWith(color: Colors.white),
+                          .copyWith(color: Colors.white),
                     ),
                   ),
                 ),

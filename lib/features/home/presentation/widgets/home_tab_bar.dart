@@ -56,7 +56,6 @@ class HomeTabBar extends StatelessWidget {
               border: Border(
                 top: BorderSide(
                   color: context.appColors.tabBarBorder,
-                  width: AppBorderWidth.regular,
                 ),
               ),
             ),
@@ -120,7 +119,7 @@ class HomeTabBar extends StatelessWidget {
                 item.label,
                 maxLines: AppTextLimits.singleLine,
                 overflow: TextOverflow.ellipsis,
-                style: context.textStyles.labelSmall?.copyWith(
+                style: context.textStyles.labelSmall.copyWith(
                   color: isActive
                       ? context.appColors.primary
                       : context.appColors.tabInactiveLabel,

@@ -13,7 +13,6 @@ abstract final class AppTheme {
   static ThemeData get light => _base(
         ColorScheme.fromSeed(
           seedColor: AppColors.light.primary,
-          brightness: Brightness.light,
           primary: AppColors.light.primary,
           onPrimary: AppColors.light.textOnPrimary,
           surface: AppColors.light.scaffoldBackground,

@@ -1,5 +1,4 @@
 import 'package:flutter/animation.dart';
-import 'package:flutter/painting.dart';
 
 /// Every duration in the app. Nothing constructs a [Duration] inline.
 abstract final class AppDurations {

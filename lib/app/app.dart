@@ -27,7 +27,6 @@ class PlantApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
-        themeMode: ThemeMode.system,
         routerConfig: router.config(),
         builder: (BuildContext context, Widget? child) {
           // One responsive scope for the whole app. The clamp bounds are

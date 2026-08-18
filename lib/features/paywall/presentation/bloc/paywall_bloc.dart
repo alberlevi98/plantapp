@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/entities/subscription_plan.dart';
-import '../constants/paywall_dimensions.dart';
 
 part 'paywall_bloc.freezed.dart';
 part 'paywall_event.dart';
@@ -18,7 +17,6 @@ class PaywallBloc extends Bloc<PaywallEvent, PaywallState> {
       : super(
           const PaywallState(
             plans: _defaultPlans,
-            selectedIndex: PaywallConstants.initialPlanIndex,
           ),
         ) {
     on<PaywallPlanSelected>(

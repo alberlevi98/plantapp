@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../core/constants/app_assets.dart';
 import '../../features/onboarding/presentation/constants/onboarding_assets.dart';
 
 /// The hand-drawn stroke behind the highlighted words in onboarding

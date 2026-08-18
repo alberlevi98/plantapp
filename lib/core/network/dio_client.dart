@@ -21,7 +21,6 @@ class DioClient {
         connectTimeout: ApiConstants.connectTimeout,
         receiveTimeout: ApiConstants.receiveTimeout,
         sendTimeout: ApiConstants.sendTimeout,
-        responseType: ResponseType.json,
         headers: const <String, String>{'Accept': 'application/json'},
         // We validate status codes ourselves so 4xx/5xx reach [_mapError].
         validateStatus: HttpStatus.isSuccess,
@@ -32,7 +31,7 @@ class DioClient {
         // see ConnectivityInterceptor's doc comment for why that matters.
         ConnectivityInterceptor(),
         AuthInterceptor(storage),
-        RetryInterceptor(dio: _dio, maxRetries: ApiConstants.maxRetries),
+        RetryInterceptor(dio: _dio),
         LoggingInterceptor(),
       ]);
   }

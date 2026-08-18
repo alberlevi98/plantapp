@@ -25,10 +25,10 @@ Future<void> configureDependencies() async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   getIt
     ..registerSingleton<SharedPreferences>(prefs)
-    ..registerLazySingleton<Connectivity>(Connectivity.new);
+    ..registerLazySingleton<Connectivity>(Connectivity.new)
 
   // --- Core ---------------------------------------------------------------
-  getIt
+
     ..registerLazySingleton<LocalStorage>(
       () => LocalStorageImpl(getIt<SharedPreferences>()),
     )
@@ -37,19 +37,19 @@ Future<void> configureDependencies() async {
     )
     ..registerLazySingleton<DioClient>(
       () => DioClient(storage: getIt<LocalStorage>()),
-    );
+    )
 
   // --- Routing ------------------------------------------------------------
-  getIt
+
     ..registerLazySingleton<OnboardingGuard>(
       () => OnboardingGuard(getIt<LocalStorage>()),
     )
     ..registerLazySingleton<AppRouter>(
       () => AppRouter(onboardingGuard: getIt<OnboardingGuard>()),
-    );
+    )
 
   // --- Home feature -------------------------------------------------------
-  getIt
+
     ..registerLazySingleton<HomeRemoteDataSource>(
       () => HomeRemoteDataSourceImpl(getIt<DioClient>()),
     )
@@ -70,10 +70,10 @@ Future<void> configureDependencies() async {
         getCategories: getIt<GetCategories>(),
         getQuestions: getIt<GetQuestions>(),
       ),
-    );
+    )
 
   // --- Onboarding & paywall ----------------------------------------------
-  getIt
+
     ..registerLazySingleton<OnboardingBloc>(
       () => OnboardingBloc(getIt<LocalStorage>()),
     )

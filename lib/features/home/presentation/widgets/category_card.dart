@@ -71,7 +71,6 @@ class CategoryCard extends StatelessWidget {
                   bottom: -context.h(bleed),
                   child: AppNetworkImage(
                     url: category.imageUrl,
-                    fit: BoxFit.contain,
                   ),
                 ),
                 Padding(

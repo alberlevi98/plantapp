@@ -101,7 +101,7 @@ class _GradientText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShaderMask(
-      shaderCallback: (Rect bounds) => gradient.createShader(bounds),
+      shaderCallback: gradient.createShader,
       blendMode: BlendMode.srcIn,
       child: Text(
         text,

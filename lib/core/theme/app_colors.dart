@@ -151,8 +151,6 @@ class AppColors {
     premiumBannerBackground: Color(0xFF24201A),
     premiumArrow: Color(0xFFD0B070),
     premiumTitleGradient: LinearGradient(
-      begin: Alignment.centerLeft,
-      end: Alignment.centerRight,
       colors: <Color>[
         Color(0xFFE6C990), // warm champagne gold
         Color(0xFFE4B046), // richer golden amber
@@ -209,8 +207,6 @@ class AppColors {
     premiumBannerBackground: Color(0xFF24201A), // unchanged — see class doc
     premiumArrow: Color(0xFFD0B070),
     premiumTitleGradient: LinearGradient(
-      begin: Alignment.centerLeft,
-      end: Alignment.centerRight,
       colors: <Color>[Color(0xFFE6C990), Color(0xFFE4B046)],
     ),
     premiumIconGradient: LinearGradient(

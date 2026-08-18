@@ -137,7 +137,7 @@ class _Intro extends StatelessWidget {
               TextSpan(
                 text: 'PlantApp',
                 style: context.textStyles.displayLarge
-                    ?.copyWith(fontWeight: AppFontWeight.extraBold),
+                    .copyWith(fontWeight: AppFontWeight.extraBold),
               ),
             ],
           ),
@@ -147,7 +147,7 @@ class _Intro extends StatelessWidget {
         Text(
           'Identify more than 3000+ plants and 88% accuracy.',
           style: context.textStyles.bodyLarge
-              ?.copyWith(color: context.appColors.textSecondary),
+              .copyWith(color: context.appColors.textSecondary),
         ),
       ],
     );
@@ -246,7 +246,6 @@ class _UnderlinedWord extends WidgetSpan {
             border: Border(
               bottom: BorderSide(
                 color: color,
-                width: AppBorderWidth.regular,
               ),
             ),
           ),

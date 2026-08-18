@@ -40,7 +40,7 @@ class HomeSearchBar extends StatelessWidget {
                 border: InputBorder.none,
                 hintText: 'Search for plants',
                 hintStyle: context.textStyles.bodyMedium
-                    ?.copyWith(color: context.appColors.searchHint),
+                    .copyWith(color: context.appColors.searchHint),
               ),
             ),
           ),

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/di/injector.dart';
@@ -144,17 +145,8 @@ class _HomeContentState extends State<_HomeContent>
                 child: SizedBox(
                   height: context.h(AppDimensions.questionCardHeight),
                   child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
+                    scrollCacheExtent: ScrollCacheExtent.pixels(context.w(AppDimensions.questionCardWidth) * 2), scrollDirection: Axis.horizontal,
                     padding: EdgeInsets.symmetric(horizontal: gutter),
-                    // TalkBack/VoiceOver's "scroll focused item into view"
-                    // only works reliably once that item has actually been
-                    // laid out — with the default cacheExtent, an item just
-                    // past the visible edge hasn't been measured yet, so the
-                    // auto-scroll lands short and the card stays partially
-                    // cut off. A wider cache keeps the next couple of cards
-                    // pre-laid-out so the scroll can land on their real
-                    // position.
-                    cacheExtent: context.w(AppDimensions.questionCardWidth) * 2,
                     itemCount: questions.length,
                     // Lazy: only the visible cards are built and their images
                     // fetched.
@@ -340,7 +332,6 @@ class _CategoryGrid extends StatelessWidget {
             : HomeDimensions.gridColumnsCompact,
         mainAxisSpacing: context.h(AppDimensions.lg),
         crossAxisSpacing: context.w(AppDimensions.lg),
-        childAspectRatio: HomeDimensions.categoryAspectRatio,
       ),
       itemBuilder: (BuildContext context, int index) => _FadeSlideIn(
         animation: _stagger(
