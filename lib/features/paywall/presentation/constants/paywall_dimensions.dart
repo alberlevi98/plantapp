@@ -5,6 +5,8 @@ abstract final class PaywallDimensions {
   static const double featureListViewHeight = 124;
   static const double featureCardIconSize = 36;
 
+  static const double featureCardTrailingPadding = 42;
+
   // --- Plan tiles ---------------------------------------------------------
   static const double planTileHeight = 63;
   static const double planTilePadding = 14;

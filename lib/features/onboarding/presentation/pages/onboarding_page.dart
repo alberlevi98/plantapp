@@ -109,7 +109,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               // dedicated one for this screen — the two share the same dark
               // background by design, not a copy-paste mismatch.
               context.isDarkMode
-                  ? OnboardingAssets.getStartedBackgroundDark
+                  ? OnboardingAssets.onboardingBackgroundDark
                   : OnboardingAssets.onboardingBackground,
               fit: BoxFit.contain,
               // Decorative background — the headline carries the meaning,

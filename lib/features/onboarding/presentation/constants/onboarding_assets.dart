@@ -14,6 +14,7 @@ abstract final class OnboardingAssets {
   // Onboarding — background shared by both slides, plus one foreground
   // artwork per slide.
   static const String onboardingBackground = '$_onboarding/background.png';
+  static const String onboardingBackgroundDark = '$_onboarding/background_dark.png';
   static const String onboardingScanForeground = '$_onboarding/scan_foreground.png';
   static const String onboardingCareForeground = '$_onboarding/care_foreground.png';
   // Prepared but not yet wired to Brightness — the light version above is

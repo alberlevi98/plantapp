@@ -109,7 +109,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     PrimaryButton(label: 'Get Started', onPressed: _start),
-                    SizedBox(height: context.h(AppDimensions.md)),
+                    SizedBox(height: context.h(AppDimensions.lg)),
                     const _Agreement(),
                   ],
                 ),

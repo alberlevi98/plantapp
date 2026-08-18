@@ -66,7 +66,6 @@ class PremiumBanner extends StatelessWidget {
                             .scale(AppTextStyles.titleMedium)
                             .copyWith(fontWeight: AppFontWeight.bold),
                       ),
-                      SizedBox(height: context.h(AppDimensions.xxs)),
                       _GradientText(
                         'Tap to upgrade your account!',
                         gradient: AppColors.light.premiumTitleGradient,

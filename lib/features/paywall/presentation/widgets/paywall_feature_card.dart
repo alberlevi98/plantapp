@@ -54,37 +54,51 @@ class PaywallFeatureCard extends StatelessWidget {
       },
       child: Container(
         width: context.w(PaywallDimensions.featureCardWidth),
-        height: context.h(PaywallDimensions.featureListViewHeight),
-        padding: EdgeInsets.all(context.w(AppDimensions.lg)),
+        constraints: BoxConstraints(
+          minHeight: context.h(PaywallDimensions.featureListViewHeight),
+        ),
+          padding: EdgeInsets.only(
+            top: context.h(AppDimensions.lg),
+            left: context.w(AppDimensions.lg),
+            bottom: context.h(AppDimensions.lg),
+            right: context.w(PaywallDimensions.featureCardTrailingPadding), // ya da PaywallDimensions'a yeni bir sabit ekle
+          ),
         decoration: BoxDecoration(
           color: AppColors.light.paywallCard,
           borderRadius: BorderRadius.circular(context.r(AppRadius.lg)),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            icon,
-            SizedBox(height: context.h(AppDimensions.sm)),
-            Text(
-              title,
-              maxLines: AppTextLimits.singleLine,
-              overflow: TextOverflow.ellipsis,
-              style: context
-                  .scale(AppTextStyles.titleLarge)
-                  .copyWith(color: Colors.white),
-            ),
-            SizedBox(height: context.h(AppDimensions.xs)),
-            Text(
-              subtitle,
-              maxLines: AppTextLimits.singleLine,
-              overflow: TextOverflow.ellipsis,
-              style: context.scale(AppTextStyles.bodySmall).copyWith(
-                color: AppColors.light.paywallTextSecondary,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          icon,
+          SizedBox(height: context.h(AppDimensions.smPlus)),
+          Flexible(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    title,
+                    maxLines: AppTextLimits.singleLine,
+                    style: context.scale(AppTextStyles.titleLarge).copyWith(color: Colors.white),
+                  ),
+                  SizedBox(height: context.h(AppDimensions.xs)),
+                  Text(
+                    subtitle,
+                    maxLines: AppTextLimits.singleLine,
+                    style: context.scale(AppTextStyles.bodySmall).copyWith(
+                      color: AppColors.light.paywallTextSecondary,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
+      ),
       ),
     );
   }
